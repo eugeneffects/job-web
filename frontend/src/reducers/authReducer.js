@@ -1,7 +1,9 @@
 import { Auth } from "../actions";
 
-initialState = {
-  data: [],
+const initialState = {
+  auth: {},
+  failure: 0,
+  logged: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -11,6 +13,38 @@ const authReducer = (state = initialState, action) => {
         ...state,
         payload: action.payload,
       };
+    }
+    case Auth.LOGIN_SUCCESS: {
+      const failure = action.valid ? state.failure : state.failure + 1;
+      console.log("로그인 성공");
+      return {
+        ...state,
+        logged: action.valid,
+        failure,
+      };
+    }
+    case Auth.SESSION_LOGIN: {
+      return {
+        ...state,
+        logged: true,
+      };
+    }
+    case Auth.LOGIN_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
+    case Auth.LOGOUT: {
+      return {
+        ...state,
+        logged: false,
+        failure: 0,
+        auth: {},
+      };
+    }
+    default: {
+      return state;
     }
   }
 };

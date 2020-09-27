@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect, Link } from "react-router-dom";
-import { Home, Post } from "./routers";
+import { Home, Post, SignIn } from "./routers";
 
 const App = () => {
   return (
@@ -15,13 +15,14 @@ const App = () => {
               <Link to="post">포스트</Link>
             </li>
             <li className="flex justify-end px-2 py-2 m-2">
-              <Link to="/">로그인</Link>
+              <Link to="/signin">로그인</Link>
             </li>
           </ul>
         </header>
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/post" component={Post} />
+          <Route path="/signin" component={SignIn} />
           <Redirect to="/home" />
         </Switch>
       </BrowserRouter>
