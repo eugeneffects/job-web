@@ -58,10 +58,12 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'https://localhost:3000',
-    'https://localhost:8000'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'https://localhost:3000',
+#     'https://localhost:8000'
+# )
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'config.urls'
 

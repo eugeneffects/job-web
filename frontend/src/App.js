@@ -6,13 +6,16 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <header>
-          <ul>
-            <li>
+        <header className="flex justify-between h-15 bg-gray-700 text-white">
+          <ul className="ml-10 inline-flex">
+            <li className="flex px-2 py-2 m-2">
               <Link to="home">홈으로</Link>
             </li>
-            <li>
+            <li className="flex px-2 py-2 m-2">
               <Link to="post">포스트</Link>
+            </li>
+            <li className="flex justify-end px-2 py-2 m-2">
+              <Link to="/">로그인</Link>
             </li>
           </ul>
         </header>

@@ -1,7 +1,8 @@
 from django.db import models
+from core.models import CoreModel
 
 
-class Post(models.Model):
+class Post(CoreModel):
     title = models.CharField(max_length=100)
     content = models.TextField()
     user = models.ForeignKey(

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run watch:css && webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "npm run watch:css && webpack-dev-server --config ./webpack.config.js --mode development --open",
     "build": "postcss src/assets/tailwind.css -o dist/tailwind.css",
     "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
