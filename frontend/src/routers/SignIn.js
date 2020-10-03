@@ -1,31 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Auth } from "../actions";
+import useInput from "../customs/useInput";
 
 const SignIn = () => {
   const dispatch = useDispatch();
   const failure = useSelector(({ authReducer }) => authReducer.failure);
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onChangeAccount = (e) => {
-    const {
-      target: { value },
-    } = e;
-    setUsername(value);
-  };
-
-  const onChangePassword = (e) => {
-    const {
-      target: { value },
-    } = e;
-    setPassword(value);
-  };
+  const [text, setText] = useInput({ username: "", password: "" });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(Auth.login({ username, password }));
+    console.log(text);
+    dispatch(Auth.login({ text }));
   };
 
   useEffect(() => {
@@ -35,20 +21,22 @@ const SignIn = () => {
   }, [failure]);
 
   return (
-    <div className="flex justify-center justify-items-stretch">
+    <div className="container flex justify-center">
       <form className="" onSubmit={onSubmit}>
         <h2>로그인</h2>
         <div>
           <input
-            value={username}
-            onChange={onChangeAccount}
+            name="username"
+            value={text.username}
+            onChange={setText}
             placeholder="아이디를 입력하세요"
           />
         </div>
         <div>
           <input
-            value={password}
-            onChange={onChangePassword}
+            name="password"
+            value={text.password}
+            onChange={setText}
             placeholder="비번을 입력하세요"
             autoComplete="off"
           />
