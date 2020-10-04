@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect, Link } from "react-router-dom";
-import { Home, Post, SignIn } from "./routers";
+import { Home, PostList, SignIn } from "./routers";
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
         </header>
         <Switch>
           <Route path="/home" component={Home} />
-          <Route path="/post" component={Post} />
+          <Route path="/post" component={PostList} />
           <Route path="/signin" component={SignIn} />
           <Redirect to="/home" />
         </Switch>

@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Post from "./Post";
+import PostList from "./PostList";
 import SignIn from "./SignIn";
 
-export { Home, Post, SignIn };
+export { Home, PostList, SignIn };
